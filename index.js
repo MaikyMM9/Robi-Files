@@ -36,7 +36,7 @@ client.on("message", async message => {
             .setColor("#2c3e50")
             .addFields(
                 { name: "Botnaam", value: client.user.username },
-                { name: "Bot gemaakt door:", value: "Maiky" },
+                { name: "Bot gemaakt door:", value: "Maiky#2099" },
                 { name: "Bot gemaakt op", value: client.user.createdAt },
                 { name: `Bot word gebruikt op zoveel servers:`, value: client.guilds.cache.size }
 
