@@ -1,0 +1,22 @@
+{
+  "name": "robi_bot_discord_v12",
+  "version": "1.0.0",
+  "description": "Discord bot Robi voor bijna alle servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "Bot",
+    "Discord"
+  ],
+  "author": "Maiky",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
