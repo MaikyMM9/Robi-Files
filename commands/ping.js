@@ -5,7 +5,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
 
-    message.channel.send(`De ping is: ${bot.ping}ms`);
+    message.channel.send(`De ping is: ${client.ping}ms`);
    
    
    
