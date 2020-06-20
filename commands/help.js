@@ -24,12 +24,12 @@ module.exports.run = async (client, message, arguments) => {
         .addField("**Exclusieve Pass-Leden commands**", "Hier onder vind je de commands voor de Pass-Leden.")
         .addField("r!hallo", "De bot zegt hallo terug op jou bericht!")
         .addField("r!ping" , "Laat jouw ping zien!")
-        .addField("Er komen meer commands binnenkort", "Ideën? meld ze dan bij de Beheerder")
+        .addField("Er komen meer commands binnenkort", "Ideën? Meld ze dan bij de Beheerder")
         .setFooter("Robi")
         
        
 
-    message.channel.send(message.author +  ` Alle commands kan je vinden in je DM.`);
+    message.reply(` Alle commands kan je vinden in je DM.`);
     
     
     return message.author.send(serverEmbed);
