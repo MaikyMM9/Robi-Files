@@ -9,7 +9,7 @@ module.exports.run = async (client, message, arguments) => {
     message.delete();
 
 
-    var dmMessage = args.slice(1).join(' ');
+    var dmMessage = arguments.slice(1).join(' ');
     var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
     var userEmbed = new discord.MessageEmbed()
