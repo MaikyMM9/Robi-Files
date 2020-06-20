@@ -4,7 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
 
 const client = new discord.Client();
-client.commands = new discord.Collection();
+bot.commands = new discord.Collection();
 
 
 
@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
         var fileGet = require(`./commands/${f}`);
         console.log(`De file ${f} is geladen`)
 
-        client.commands.set(fileGet.help.name, fileGet);
+        bot.commands.set(fileGet.help.name, fileGet);
 
 
     })
@@ -56,7 +56,7 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
-    var commands = client.commands.get(command.slice(prefix.length));
+    var commands = bot.commands.get(command.slice(prefix.length));
 
     if(commands) command.run(bot, message, args);
 
