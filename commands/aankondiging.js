@@ -28,6 +28,7 @@ module.exports.run = async (client, message, arguments) => {
         if(!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
     aankondigingChannel.send(aankondigingEmbed)
+    aankondigingChannel.send("@Nintendo Player 🎮 @Pc Player 💻 @Playstation Player🎮 @Mobile/Tablet Player 📱 @Xbox Player 🎮 ")
 
 
 
