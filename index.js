@@ -60,7 +60,7 @@ client.on("message", async message => {
 
     var commands = client.commands.get(command.slice(prefix.length));
 
-    if(commands) command.run(client, message, arguments);
+    if(commands) commands.run(client, message, arguments);
 
 
 
