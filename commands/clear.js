@@ -15,9 +15,9 @@ module.exports.run = async(client, message, arguments) =>{
 
         message.channel.bulkDelete(amount).then(() => {
 
-if(args[0] == 0){
+if(arguments[0] == 0){
     message.reply (`Leuk geprobeerd!`).then(msg => msg.delete(5000));
-} else if (args[0]== 1){
+} else if (arguments[0]== 1){
     message.reply (`Er is ${arguments[0]} bericht succesvol verwijderd.`).then(msg => msg.delete(5000));
 }
     else {
