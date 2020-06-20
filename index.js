@@ -41,12 +41,6 @@ client.on("ready", async () => {
     client.user.setActivity('AnimalCrossing: NH', { type: 'PLAYING' })
         .then(presence => console.log(`Activiteit gezet naar: ${presence.activities[0].name}`))
         .catch(console.error);
-    
-    
-    
-        client.user.setStatus('idle')
-        .then(console.log)
-        .catch(console.error);
 
 
 
