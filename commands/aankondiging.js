@@ -21,7 +21,7 @@ module.exports.run = async (client, message, arguments) => {
         .setFooter("Robi")
 
 
-        var aankondigingChannel = message.guild.channels.find(`name`, "aankondigingen❗")
+        var aankondigingChannel = message.guild.cache.channels.find(`name`, "aankondigingen❗")
 
         if(!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
