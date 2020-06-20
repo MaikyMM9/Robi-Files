@@ -38,7 +38,13 @@ client.login(process.env.token);
 
 client.on("ready", async () => {
 
-    client.user.setActivity("AnimalCrossing: NH", { type: "Playing" });
+    client.user.setStatus('online')
+    client.user.setPresence({
+        game: {
+            name: 'AnimalCrossing: NH',
+            type: "Playing",
+        }
+    });
 
 
     console.log(`De bot: ${client.user.username} is online`)
@@ -60,7 +66,7 @@ client.on("message", async message => {
 
     var commands = client.commands.get(command.slice(prefix.length));
 
-    if(commands) commands.run(client, message, arguments);
+    if (commands) commands.run(client, message, arguments);
 
 
 
