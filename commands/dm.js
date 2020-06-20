@@ -22,7 +22,7 @@ module.exports.run = async (client, message, arguments) => {
     message.author.send(userEmbed)
 
     var dmEmbed = new discord.MessageEmbed()
-.setTitle("U hebt een bericht ontvangen van een Staff-Lid!**")
+.setTitle("**U hebt een bericht ontvangen van een Staff-Lid!**")
 .setColor("#470191")
 .addField("Het bericht:" , dmMessage)
 .setFooter("Robi")
