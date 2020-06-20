@@ -8,9 +8,9 @@ module.exports.run = async(client, message, arguments) =>{
 
     if(arguments[0] >= 1000) message.channel.send("Je kan niet meer dan 999 berichten verwijderen :( !");
 
-    if(Number.isInteger(parseInt(args[0]))){
+    if(Number.isInteger(parseInt(arguments[0]))){
         
-        var amount = parseInt(args[0]) + 1;
+        var amount = parseInt(arguments[0]) + 1;
         
 
         message.channel.bulkDelete(amount).then(() => {
@@ -18,10 +18,10 @@ module.exports.run = async(client, message, arguments) =>{
 if(args[0] == 0){
     message.reply (`Leuk geprobeerd!`).then(msg => msg.delete(5000));
 } else if (args[0]== 1){
-    message.reply (`Er is ${args[0]} bericht succesvol verwijderd.`).then(msg => msg.delete(5000));
+    message.reply (`Er is ${arguments[0]} bericht succesvol verwijderd.`).then(msg => msg.delete(5000));
 }
     else {
-        message.reply (`Er zijn ${args[0]} berichten succesvol verwijderd.`).then(msg => msg.delete(5000));
+        message.reply (`Er zijn ${arguments[0]} berichten succesvol verwijderd.`).then(msg => msg.delete(5000));
 
 
     }
