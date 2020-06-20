@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, arguments) => {
 
 
-    member.roles.cache.has('717635063218438165');
+    message.member.roles.cache.has('717635063218438165');
 
 
     var ping = Date.now() - message.createdTimestamp + " ms";
