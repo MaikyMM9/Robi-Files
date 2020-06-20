@@ -23,7 +23,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
 
-        var aankondigingChannel = message.member.guild.channels.find(chnnels => channels.name === "aankondigingen❗")
+        var aankondigingChannel = message.member.guild.channels.cache.find(chnnels => channels.name === "aankondigingen❗")
 
         if(!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
