@@ -35,6 +35,7 @@ module.exports.run = async (client, message, arguments) => {
         .setColor("#86ceb1")
         .setDescription('Nieuwe aankoniging!')
         .addField(`De aankondiging:`, aankondiging)
+        .addField(`Verstuurd door:`, message.author)
         .setFooter("Robi")
 
 
