@@ -2,7 +2,7 @@ const discord = require("discord.js");
  
 module.exports.run = async (client, message, arguments) => {
 
-    if (!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.send("Sorry je kunt dit niet doen");
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Sorry je kunt dit niet doen");
 
 
 
