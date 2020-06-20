@@ -4,6 +4,8 @@ module.exports.run = async (client, message, arguments) => {
 
     message.delete();
 
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(message.author + " Deze commando kun jij helaas niet gebruiken!")
+
     var role1 = message.guild.roles.cache.find(r => r.id === "717630438729973771");
 
     var role2 = message.guild.roles.cache.find(r => r.id === "718074192997646367");
@@ -22,7 +24,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
 
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(message.author + " Deze commando kun jij helaas niet gebruiken!")
+    
 
 
 

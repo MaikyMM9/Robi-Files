@@ -2,7 +2,10 @@ const discord = require("discord.js")
 
 module.exports.run = async (client, message, arguments) => {
 
-    return message.channel.send("Hallo!");
+    member.roles.cache.has('717635063218438165');
+
+
+    return message.reply("Hallo! Pass-Lid :smile:");
 
 
 
