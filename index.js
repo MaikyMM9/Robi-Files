@@ -50,28 +50,11 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
-    if (command === `${prefix}Hi`) {
-        return message.channel.send("Hallo!");
 
-    }
+        
 
-    if (command === `${prefix}botinfo`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("Bot-info")
-            .setDescription(`Hier is de info van Robi!`)
-            .setColor("#2c3e50")
-            .addFields(
-                { name: "Botnaam", value: client.user.username },
-                { name: "Bot gemaakt door:", value: "Maiky#2099" },
-                { name: "Bot gemaakt op", value: client.user.createdAt },
-                { name: `Bot word gebruikt op zoveel servers:`, value: client.guilds.cache.size }
+    
 
-
-            );
-
-        return message.channel.send(botEmbed)
-
-    }
 
 
 });
