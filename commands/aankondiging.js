@@ -11,7 +11,7 @@ module.exports.run = async (client, message, arguments) => {
 
     
 
-    var aankondiging = args.join(" ")
+    var aankondiging = arguments.join(" ")
 
     var aankondigingEmbed = new discord.MessageEmbed()
         .setTitle("Aankondiging")
