@@ -10,7 +10,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
     var dmMessage = arguments.slice(1).join(' ');
-    var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(arguments[0]));
 
     var userEmbed = new discord.MessageEmbed()
         .setTitle("**U hebt een bericht verstuurd**")
