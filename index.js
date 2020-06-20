@@ -4,6 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
 
 const client = new discord.Client();
+client.commands = new discord.Collection();
 
 
 
@@ -13,17 +14,20 @@ fs.readdir("./commands/", (err, files) => {
 
     var jsFiles = files.filter(f => f.split(".").pop() === "js");
 
-    if (jsFiles.length <=0) {
+    if (jsFiles.length <= 0) {
         console.log("Kan geen jsFiles vinden!");
         return;
     }
 
-jsFiles.forEach((f,i) => {
+    jsFiles.forEach((f, i) => {
 
-    var fileGet = require(`./commands/${f}`);
-    console.log(`De file ${f} is geladen`)
+        var fileGet = require(`./commands/${f}`);
+        console.log(`De file ${f} is geladen`)
 
-});
+        client.commands.set(fileGet.help.name, fileGet);
+
+
+    })
 
 });
 
@@ -40,11 +44,11 @@ client.on("ready", async () => {
     console.log(`De bot: ${client.user.username} is online`)
 
 });
-client.on("message", async message =>{
+client.on("message", async message => {
 
-    if(message.author.bot) return;
+    if (message.author.bot) return;
 
-    if(message.channel.type == "dm") return;
+    if (message.channel.type == "dm") return;
 
     var prefix = botConfig.prefix;
 
@@ -52,10 +56,13 @@ client.on("message", async message =>{
 
     var command = messageArray[0];
 
+    var commands = client.commands.get(command.slice(prefix.length));
 
-        
+    if(commands) command.run(bot, message, args);
 
-    
+
+
+
 
 
 
