@@ -54,11 +54,13 @@ client.on("message", async message => {
 
     var messageArray = message.content.split(" ");
 
+    var arguments = messageArray.slice(1);
+
     var command = messageArray[0];
 
     var commands = client.commands.get(command.slice(prefix.length));
 
-    if(commands) command.run(client, message, args);
+    if(commands) command.run(client, message, arguments);
 
 
 
