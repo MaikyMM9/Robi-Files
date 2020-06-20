@@ -41,11 +41,7 @@ client.on("ready", async () => {
     client.user.setActivity('AnimalCrossing: NH', { type: 'PLAYING' })
         .then(presence => console.log(`Activiteit gezet naar: ${presence.activities[0].name}`))
         .catch(console.error);
-    
-    
-        client.user.setStatus('do not disturb')
-        .then(presence => console.log(`Status gezet naar: ${presence.activities[0].name}`))
-        .catch(console.error);
+
 
 
 
