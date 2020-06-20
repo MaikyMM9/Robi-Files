@@ -44,7 +44,7 @@ client.on("ready", async () => {
     
     
         client.user.setStatus('do not disturb')
-        .then(console.log)
+        .then(presence => console.log(`Status gezet naar: ${presence.activities[0].name}`))
         .catch(console.error);
 
 
