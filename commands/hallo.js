@@ -2,8 +2,9 @@ const discord = require("discord.js")
 
 module.exports.run = async (client, message, arguments) => {
 
-    message.member.roles.cache.has('717635063218438165');
-
+    if (message.member.roles.cache.has('17635063218438165'))
+        if (!message.member.roles.cache.has('17635063218438165'))
+            return;
 
     return message.reply("Hallo! Pass-Lid :smile:");
 
