@@ -24,7 +24,7 @@ module.exports.run = async (client, message, arguments) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(message.author + " Deze commando kun jij helaas niet gebruiken!")
 
-    
+
 
 
 
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, arguments) => {
     if (!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
     aankondigingChannel.send(aankondigingEmbed)
-    aankondigingChannel.send(role1, role2, role3, role4, role5)
+    aankondigingChannel.send(`${role1}\n${role2}\n${role3}\n${role4}\n${role5}`);
 
 
 
