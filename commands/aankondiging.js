@@ -24,7 +24,7 @@ module.exports.run = async (client, message, arguments) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(message.author + " Deze commando kun jij helaas niet gebruiken!")
 
-    const client = new Discord.Client({ disableEveryone: false });
+    
 
 
 
