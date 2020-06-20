@@ -1,6 +1,6 @@
 const discord = require("discord.js")
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, arguments) => {
 
     var botEmbed = new discord.MessageEmbed()
     .setTitle("Bot-info")
