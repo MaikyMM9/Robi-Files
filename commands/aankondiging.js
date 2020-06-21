@@ -62,7 +62,7 @@ module.exports.run = async (client, message, arguments) => {
     
 
 
-    aankondigingChannel.send(`${role1}\n${role2}\n${role3}\n${role4}\n${role5}`)
+    //aankondigingChannel.send(`${role1}\n${role2}\n${role3}\n${role4}\n${role5}`)
 
     
 
