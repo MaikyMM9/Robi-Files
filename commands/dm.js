@@ -25,6 +25,7 @@ module.exports.run = async (client, message, arguments) => {
 .setTitle("**U hebt een bericht ontvangen van een Staff-Lid!**")
 .setColor("#470191")
 .addField("Het bericht:" , dmMessage)
+.addField("Dit bericht is niet antwoordbaar", "Dit houd in dat je dit bericht kunt beantwoorden via de Beheerder!")
 .setFooter("Robi")
 
 dmPerson.send(dmEmbed)
