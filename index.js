@@ -68,7 +68,7 @@ client.on("message", async message => {
     if (commands) commands.run(client, message, arguments);
 
 
-
+    if(!message.content.startsWith(prefix)) return;
 
 
 
