@@ -57,6 +57,8 @@ client.on("message", async message => {
 
     var prefix = botConfig.prefix;
 
+    if(!message.content.startsWith(prefix)) return;
+
     var messageArray = message.content.split(" ");
 
     var arguments = messageArray.slice(1);
@@ -68,7 +70,7 @@ client.on("message", async message => {
     if (commands) commands.run(client, message, arguments);
 
 
-    if(!message.content.startsWith(prefix)) return;
+    
 
 
 
