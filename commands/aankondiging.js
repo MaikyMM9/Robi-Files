@@ -47,9 +47,24 @@ module.exports.run = async (client, message, arguments) => {
 
     if (!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
-    aankondigingChannel.send(aankondigingEmbed)
-    aankondigingChannel.send(`${role1}\n${role2}\n${role3}\n${role4}\n${role5}`);
+    aankondigingChannel.send(aankondigingEmbed).then(async msg => {
 
+
+
+        var emoji = await promptMessage(msg, message.author, ["✅", "❌"])
+
+
+
+    })
+
+
+
+    
+
+
+    aankondigingChannel.send(`${role1}\n${role2}\n${role3}\n${role4}\n${role5}`)
+
+    
 
 
 
