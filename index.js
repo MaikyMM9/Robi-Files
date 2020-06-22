@@ -102,7 +102,7 @@ client.on("message", async message => {
             .setDescription(`Wil je ${kickUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
 
 
-        var embed = new discord.MessageEmbed
+        var embed = new discord.MessageEmbed()
             .setColor("#470191")
             .setFooter(message.member.displayName)
             .setTimestamp()
