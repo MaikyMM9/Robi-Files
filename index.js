@@ -99,14 +99,14 @@ client.on("message", async message => {
         var embedPrompt = new discord.MessageEmbed()
             .setTitle("Verificatie (reageer binnen 30 seconden)")
             .setColor("#470191")
-            .setDescription(`Wil je ${kickUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
+            .setDescription(`Wil je ${banUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
 
 
         var embed = new discord.MessageEmbed()
             .setColor("#470191")
             .setFooter(message.member.displayName)
             .setTimestamp()
-            .setDescription(`**Verwijderde gebruiker: ${kickUser} (${kickUser.id})
+            .setDescription(`**Verwijderde gebruiker: ${banUser} (${banUser.id})
         Verwijderd door:** ${message.author}
         **Reden: ** ${reden}`);
 
@@ -120,6 +120,72 @@ client.on("message", async message => {
                 msg.delete();
 
                 kickUser.kick(reden).catch(err => {
+
+
+                    if (err) return message.reply("Er is iets fout gegaan!");
+                });
+
+                message.channel.send(embed)
+
+            } else if (emoji === "❌") {
+
+                msg.delete();
+                message.reply("Geanuleerd!").then(m => m.delete(5000));
+            }
+
+
+
+
+
+        })
+
+
+    }
+
+
+    if (command === `${prefix}ban`) {
+
+
+        var args = message.content.slice(prefix.length).split(/ + /);
+
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
+
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("Geen permissie!");
+
+        if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
+
+        if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
+
+        var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+
+        var reden = args.slice(2).join(" ")
+
+        if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
+
+        var embedPrompt = new discord.MessageEmbed()
+            .setTitle("Verificatie (reageer binnen 30 seconden)")
+            .setColor("#470191")
+            .setDescription(`Wil je ${banUser} verbannen uit de server?`)
+
+
+        var embed = new discord.MessageEmbed()
+            .setColor("#470191")
+            .setFooter(message.member.displayName)
+            .setTimestamp()
+            .setDescription(`**Verbannen gebruiker: ${banUser} (${banUser.id})
+        Verbannen door:** ${message.author}
+        **Reden: ** ${reden}`);
+
+
+        message.channel.send(embedPrompt).then(async msg => {
+
+            var emoji = await promptMessage(msg, message.author, 30, ["✅", "❌"]);
+
+            if (emoji === "✅") {
+
+                msg.delete();
+
+                banUser.ban(reden).catch(err => {
 
 
                     if (err) return message.reply("Er is iets fout gegaan!");
@@ -143,6 +209,9 @@ client.on("message", async message => {
 
 
     }
+
+
+
 
 
 
