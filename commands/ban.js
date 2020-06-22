@@ -40,6 +40,8 @@ module.exports.run = async (client, message, arguments) => {
 
             msg.delete();
 
+            banUser.send(banUserEmbed);
+
             banUser.ban(reden).catch(err => {
 
 
@@ -49,8 +51,8 @@ module.exports.run = async (client, message, arguments) => {
                     .setTitle(`Je bent verbannen uit de:${message.guild.name} server! `)
                     .addField(`Met de volgende reden ben je verbannen:`, reden)
 
-                    banUser.send(banUserEmbed);
-                   
+
+
 
             });
 
@@ -63,6 +65,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
         } else if (emoji === "❌") {
+            var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
 
             msg.delete();
             message.reply("Geanuleerd!").then(m => m.delete(5000));
