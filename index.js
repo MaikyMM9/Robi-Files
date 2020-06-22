@@ -90,7 +90,7 @@ client.on("message", async message => {
 
         if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-        var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+        var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
         var reden = args.slice(2).join(" ")
 
@@ -156,9 +156,9 @@ client.on("message", async message => {
 
         if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-        var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+        var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-        var reden = args.slice(1).join(" ")
+        var reden = args.slice(2).join(" ")
 
         if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
