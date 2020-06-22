@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, arguments) => {
 
-    
+
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("Geen permissie!");
@@ -44,17 +44,39 @@ module.exports.run = async (client, message, arguments) => {
 
 
                 if (err) return message.reply("Er is iets fout gegaan!");
+
+                var banUserEmbed = new discord.MessageEmbed()
+                    .setTitle(`Je bent verbannen uit de:${message.guild.name} server! `)
+                    .addField(`Met de volgende reden ben je verbannen:`, reden)
+
+                    banUser.send(banUserEmbed);
+                   
+
             });
 
-            message.channel.send(embed
+            message.channel.send(embed)
 
-            )
+            var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+            logChannel.send(embed)
+
+
+
 
         } else if (emoji === "❌") {
 
             msg.delete();
             message.reply("Geanuleerd!").then(m => m.delete(5000));
+
+            var annuleerEmbed = new discord.MessageEmbed()
+                .setTitle("**BAN GEANNULEERD!**")
+                .setDescription(`De ban van: ${banUser} is geannuleerd!`)
+
+            logChannel.send(annuleerEmbed)
+
+
+
         }
+
 
 
 
@@ -68,7 +90,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
 
-    
+
 
 
 

@@ -42,14 +42,35 @@ module.exports.run = async (client, message, arguments) => {
 
 
                 if (err) return message.reply("Er is iets fout gegaan!");
+
+var kickUserEmbed = new discord.MessageEmbed()
+.setTitle(`Je bent verwijderd uit de:${message.guild.name} server! `)
+.addField(`Met de volgende reden ben je verwijderd:`, reden)
+.addField(`Je kunt eventueel weer deelnemen met de volgende link:`, `https://discord.gg/5m2waGd`)
+
+kickUser.send(kickUserEmbed);
+
+
+
             });
 
             message.channel.send(embed)
+
+            var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+            logChannel.send(embed)
 
         } else if (emoji === "❌") {
 
             msg.delete();
             message.reply("Geanuleerd!").then(m => m.delete(5000));
+
+
+            var annuleerEmbed = new discord.MessageEmbed()
+            .setTitle("**KICK GEANNULEERD!**")
+            .setDescription(`De ban van: ${kickUser} is geannuleerd!`)
+            
+            logChannel.send(annuleerEmbed)
+            
         }
 
 
@@ -60,7 +81,7 @@ module.exports.run = async (client, message, arguments) => {
 
 
 }
-    
+
 
 
 
