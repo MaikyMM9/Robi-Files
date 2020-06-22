@@ -92,7 +92,7 @@ client.on("message", async message => {
 
         var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-        var reden = args.slice(2).join(" ")
+        var reden = args.slice(1).join(" ")
 
         if (!kickUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
@@ -158,7 +158,7 @@ client.on("message", async message => {
 
         var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-        var reden = args.slice(2).join(" ")
+        var reden = args.slice(1).join(" ")
 
         if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
