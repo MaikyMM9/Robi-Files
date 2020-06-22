@@ -86,9 +86,9 @@ client.on("message", async message => {
 
         if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen permissie!");
 
-        if (!args[1]) return message.reply("Er is geen gebruiker genoemd!");
+        if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
 
-        if (!args[2]) return message.reply("Er zijn geen redenen meegegeven!");
+        if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
         var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
 
