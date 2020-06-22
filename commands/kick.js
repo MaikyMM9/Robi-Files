@@ -5,13 +5,13 @@ module.exports.run = async (client, message, arguments) => {
 
     if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen permissie!");
 
-    if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
+    if (!arguments[0]) return message.reply("Er is geen gebruiker genoemd!");
 
-    if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
+    if (!arguments[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-    var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(arguments[0]));
 
-    var reden = args.slice(1).join(" ")
+    var reden = arguments.slice(1).join(" ")
 
     if (!kickUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 

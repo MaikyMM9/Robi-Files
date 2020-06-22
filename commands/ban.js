@@ -7,13 +7,13 @@ module.exports.run = async (client, message, arguments) => {
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("Geen permissie!");
 
-    if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
+    if (!arguments[0]) return message.reply("Er is geen gebruiker genoemd!");
 
-    if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
+    if (!arguments[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-    var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(arguments[0]));
 
-    var reden = args.slice(1).join(" ")
+    var reden = arguments.slice(1).join(" ")
 
     if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
