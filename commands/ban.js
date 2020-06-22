@@ -1,32 +1,34 @@
 const discord = require("discord.js");
 
 module.exports.run = async (client, message, arguments) => {
-    if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
 
-    if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen permissie!");
+    
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
+
+    if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("Geen permissie!");
 
     if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
 
     if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-    var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
     var reden = args.slice(1).join(" ")
 
-    if (!kickUser) return message.reply("De genoemde gebruiker is niet gevonden!")
+    if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
     var embedPrompt = new discord.MessageEmbed()
         .setTitle("Verificatie (reageer binnen 30 seconden)")
         .setColor("#470191")
-        .setDescription(`Wil je ${banUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
+        .setDescription(`Wil je ${banUser} verbannen uit de server?`)
 
 
     var embed = new discord.MessageEmbed()
         .setColor("#470191")
         .setFooter(message.member.displayName)
         .setTimestamp()
-        .setDescription(`**Verwijderde gebruiker: ${banUser} (${banUser.id})
-    Verwijderd door:** ${message.author}
+        .setDescription(`**Verbannen gebruiker: ${banUser} (${banUser.id})
+    Verbannen door:** ${message.author}
     **Reden: ** ${reden}`);
 
 
@@ -38,13 +40,15 @@ module.exports.run = async (client, message, arguments) => {
 
             msg.delete();
 
-            kickUser.kick(reden).catch(err => {
+            banUser.ban(reden).catch(err => {
 
 
                 if (err) return message.reply("Er is iets fout gegaan!");
             });
 
-            message.channel.send(embed)
+            message.channel.send(embed
+
+            )
 
         } else if (emoji === "❌") {
 
@@ -60,6 +64,10 @@ module.exports.run = async (client, message, arguments) => {
 
 
 }
+
+
+
+
     
 
 
