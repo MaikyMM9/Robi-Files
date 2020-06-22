@@ -152,9 +152,9 @@ client.on("message", async message => {
 
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("Geen permissie!");
 
-        if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
+        if (!args[1]) return message.reply("Er is geen gebruiker genoemd!");
 
-        if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
+        if (!args[2]) return message.reply("Er zijn geen redenen meegegeven!");
 
         var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
 
