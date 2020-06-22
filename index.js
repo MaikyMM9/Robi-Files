@@ -80,7 +80,7 @@ client.on("message", async message => {
     if (command === `${prefix}kick`) {
 
 
-        var args = message.content.slice(perfix.length).split(/ + /);
+        var args = message.content.slice(prefix.length).split(/ + /);
 
         if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
 
