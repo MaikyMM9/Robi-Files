@@ -18,14 +18,14 @@ module.exports.run = async (client, message, arguments) => {
     var embedPrompt = new discord.MessageEmbed()
         .setTitle("Verificatie (reageer binnen 30 seconden)")
         .setColor("#470191")
-        .setDescription(`Wil je ${banUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
+        .setDescription(`Wil je ${kickUser} verwijderen uit de server? (let op! deze gebruiker kan weer lid worden met een nieuwe uitnodiging!)`)
 
 
     var embed = new discord.MessageEmbed()
         .setColor("#470191")
         .setFooter(message.member.displayName)
         .setTimestamp()
-        .setDescription(`**Verwijderde gebruiker: ${banUser} (${banUser.id})
+        .setDescription(`**Verwijderde gebruiker: ${kickUser} (${kickUser.id})
     Verwijderd door:** ${message.author}
     **Reden: ** ${reden}`);
 
