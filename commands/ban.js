@@ -41,8 +41,9 @@ module.exports.run = async (client, message, arguments) => {
             msg.delete();
 
             var banUserEmbed = new discord.MessageEmbed()
-                .setTitle(`Je bent verbannen uit de:${message.guild.name} server! `)
+                .setTitle(`Je bent verbannen uit de: ${message.guild.name} server! `)
                 .addField(`Met de volgende reden ben je verbannen:`, reden)
+                .addField("Wil je je ban opheffen met een goeie reden?", "Hier is de link: https://forms.gle/xduRTxSqHXmKC8z77")
 
 
 

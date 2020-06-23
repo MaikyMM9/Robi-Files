@@ -39,7 +39,7 @@ module.exports.run = async (client, message, arguments) => {
             msg.delete();
 
             var kickUserEmbed = new discord.MessageEmbed()
-                .setTitle(`Je bent verwijderd uit de:${message.guild.name} server! `)
+                .setTitle(`Je bent verwijderd uit de: ${message.guild.name} server! `)
                 .addField(`Met de volgende reden ben je verwijderd:`, reden)
                 .addField(`Je kunt eventueel weer deelnemen met de volgende link:`, `https://discord.gg/5m2waGd`)
 
