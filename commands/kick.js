@@ -74,7 +74,7 @@ module.exports.run = async (client, message, arguments) => {
 
             var annuleerEmbed = new discord.MessageEmbed()
                 .setTitle("**KICK GEANNULEERD!**")
-                .setDescription(`De ban van: ${kickUser} is geannuleerd!`)
+                .setDescription(`De kick van: ${kickUser} is geannuleerd!`)
 
             logChannel.send(annuleerEmbed)
 
