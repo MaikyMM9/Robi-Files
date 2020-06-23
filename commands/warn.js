@@ -20,66 +20,67 @@ module.exports.run = async (client, message, arguments) => {
 
     if (warnUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Deze gebruiker kan geen waarschuwingen krijgen!")
 
-    if (warns[warnUser.id]) {
-        warns[warnUser.id] = {
-            warns: 0
+    if (!warns[warnUser.id]) warns[warnUser.id] = {
+        warns: 0
+    };
 
-        };
-        warns[warnUser.id].warns++;
+    warns[warnUser.id].warns++;
 
-        fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-            if (err) console.log(err)
+    fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
+        if (err) console.log(err)
 
-        });
+    });
 
-        var embed = new discord.MessageEmbed()
-            .setColor("#470191")
-            .setFooter(message.member.displayName)
-            .setTimestamp()
-            .setDescription(`**Waargeschuwde gebruiker: ${warnUser} (${warnUser.id})
+    var embed = new discord.MessageEmbed()
+        .setColor("#470191")
+        .setFooter(message.member.displayName)
+        .setTimestamp()
+        .setDescription(`**Waargeschuwde gebruiker: ${warnUser} (${warnUser.id})
     Waarschuwing door:** ${message.author}
     **Reden: ** ${reden}`)
-            .addField("Aantal warns", warns[warnUser.id].warns);
+        .addField("Aantal warns", warns[warnUser.id].warns);
 
-        var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
-        logChannel.send(embed)
+    message.channel.send(embed)
 
-        if (warns[warnUser.id].warns == 2) {
+    var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+    logChannel.send(embed)
 
-            var kijkuitEmbed = new discord.MessageEmbed()
-                .setColor("#470191")
-                .setDescription("Waarschuwing!")
-                .addField("Pas op", "Je zit op 2 warns! Bij de 3e word je verbannen!")
+    if (warns[warnUser.id].warns == 2) {
 
-            message.channel.send(kijkuitEmbed);
+        var kijkuitEmbed = new discord.MessageEmbed()
+            .setColor("#470191")
+            .setDescription("Waarschuwing!")
+            .addField("Pas op", "Je zit op 2 warns! Bij de 3e word je verbannen!")
 
-
-        }
-        if (warns[warnUser.id].warns == 3) {
-
-            var kijkuitEmbed = new discord.MessageEmbed()
-                .setColor("#470191")
-                .setDescription("Waarschuwing!")
-                .addField("Pas op", "Je zit op 2 warns! Bij de 3e word je verbannen!")
-
-            message.channel.send(kijkuitEmbed);
+        message.channel.send(kijkuitEmbed);
 
 
-        }else if (warns[warnUser.id].warns == 3) {
-message.guild.member(warnUser).ban(reden)
-message.channel.send(`${kickUser} is verbannen omdat hij of zij 3 warns had`)
+    }
+    if (warns[warnUser.id].warns == 3) {
+
+        var kijkuitEmbed = new discord.MessageEmbed()
+            .setColor("#470191")
+            .setDescription("Waarschuwing!")
+            .addField("Pas op", "Je zit op 2 warns! Bij de 3e word je verbannen!")
+
+        message.channel.send(kijkuitEmbed);
 
 
-
-        }
-
-
-
-
+    } else if (warns[warnUser.id].warns == 3) {
+        message.guild.member(warnUser).ban(reden)
+        message.channel.send(`${kickUser} is verbannen omdat hij of zij 3 warns had`)
 
 
 
     }
+
+
+
+
+
+
+
+
 
 
 
