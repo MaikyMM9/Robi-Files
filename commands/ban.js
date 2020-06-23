@@ -13,7 +13,7 @@ module.exports.run = async (client, message, arguments) => {
 
     var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(arguments[0]));
 
-    var reden = arguments.slice(1).join(" ")
+    var reden = arguments.slice(1).join(" ");
 
     if (!banUser) return message.reply("De genoemde gebruiker is niet gevonden!")
 
