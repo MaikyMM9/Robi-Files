@@ -40,6 +40,13 @@ module.exports.run = async (client, message, arguments) => {
 
             msg.delete();
 
+            var banUserEmbed = new discord.MessageEmbed()
+                .setTitle(`Je bent verbannen uit de:${message.guild.name} server! `)
+                .addField(`Met de volgende reden ben je verbannen:`, reden)
+
+
+
+
             banUser.send(banUserEmbed);
 
             banUser.ban(reden).catch(err => {
@@ -47,9 +54,6 @@ module.exports.run = async (client, message, arguments) => {
 
                 if (err) return message.reply("Er is iets fout gegaan!");
 
-                var banUserEmbed = new discord.MessageEmbed()
-                    .setTitle(`Je bent verbannen uit de:${message.guild.name} server! `)
-                    .addField(`Met de volgende reden ben je verbannen:`, reden)
 
 
 
