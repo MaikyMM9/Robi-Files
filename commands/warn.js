@@ -69,10 +69,8 @@ module.exports.run = async (client, message, arguments) => {
     } else if (warns[warnUser.id].warns == 3) {
         message.guild.member(warnUser).ban(reden)
         message.channel.send(`${kickUser} is verbannen omdat hij of zij 3 warns had`)
-
-
-
     }
+
 
 
 
