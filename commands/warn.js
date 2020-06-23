@@ -29,6 +29,8 @@ module.exports.run = async (client, message, arguments) => {
     fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err)
 
+        console.log(`${warnUser} heeft nu ${warns[warnUser.id].warns} warn(s)`)
+
     });
 
     var embed = new discord.MessageEmbed()
