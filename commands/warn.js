@@ -55,16 +55,10 @@ module.exports.run = async (client, message, arguments) => {
         message.channel.send(kijkuitEmbed);
 
 
-    }
-    if (warns[warnUser.id].warns == 3) {
+    
+  
 
-        var kijkuitEmbed = new discord.MessageEmbed()
-            .setColor("#470191")
-            .setDescription("Waarschuwing!")
-            .addField("Pas op", "Je zit op 2 warns! Bij de 3e word je verbannen!")
-
-        message.channel.send(kijkuitEmbed);
-
+       
 
     } else if (warns[warnUser.id].warns == 3) {
         message.guild.member(warnUser).ban(reden)
